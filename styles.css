@@ -1,0 +1,77 @@
+/* animation utility class */
+.animate {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+/* animation classes */
+.logo-animation{
+    animation: logo-animation 4s ease-in-out 0s forwards;
+}
+.reveal-upward{
+    animation: reveal-upward 1s ease-in 2.1s forwards;
+}
+
+/* hops down, jump right, and spin counterclockwise animation */
+@keyframes logo-animation{
+    /* 'transform' resource credit: https://www.w3schools.com/cssref/css3_pr_transform.php */
+    /* 'translate' resource credit: https://www.w3schools.com/css/css3_2dtransforms.asp */
+
+    /* hopping down from off the screen... */
+    0%   {transform: translate(-100px, -100px);}
+    35%  {transform: translate(10px, 70px);}
+
+    /* ...jumping up to the right... */
+    50%  {transform: translate(150px, 5px);}
+    65%  {transform: translate(150px, 5px);}
+
+    /* ...one full rotation couterclockwise... */
+    65%{
+        /* transform-origin resource credit: https://www.w3schools.com/cssref/css3_pr_transform-origin.php */
+        transform-origin: left top;
+        /* rotate resource credit: https://www.w3schools.com/css/tryit.asp?filename=trycss3_transform_rotate2 */
+        transform: translate(0px, 10px) rotate(-360deg);}
+    70%{
+        transform-origin: center center;
+        transform: translate(0px, 10px) rotate(-360deg);}
+   
+    /* ...sliding up */
+    100%{
+        transform-origin: left top;
+        transform: translate(0px, 1px) rotate(-360deg);}
+}
+
+/* reveal an element and slightly shift it upwards animation */
+@keyframes reveal-upward{
+    /* Resource credit: https://www.w3schools.com/cssref/css3_pr_opacity.php */
+    0%{opacity: 0; transform: translateY(20px);}
+    40%{transform: translateY(20px);}
+    100%{opacity: 100; transform: translateY(0px);}
+}
+
+/* define space for the animation to occur in  */
+#animation-area{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 50px;
+
+    border: 1px solid #000;
+}
+
+#business-name{
+    width: fit-content;
+    position: relative;
+    display: block;  
+    padding: 0px;
+    margin: 0px;
+}
+
+#business-logo{
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: auto;
+    opacity: 0;
+}
